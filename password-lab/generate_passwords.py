@@ -23,13 +23,6 @@ contrasenas_complejas = [
     ]
   # Combinar todas las contrasenas
 contrasenas = contrasenas_simples + contrasenas_complejas
-    
-    # Agregar mas contrasenas numericas simples
-for i in range(30):
-        contrasenas.append(f"user{i}")
-        contrasenas.append(f"test{i}")
-        return contrasenas[:100]  # Asegurar que solo tenemos 100
-
 # Funcion para calcular hash SHA-256
 def calcular_hash(contrasena):
     return hashlib.sha256(contrasena.encode()).hexdigest()
