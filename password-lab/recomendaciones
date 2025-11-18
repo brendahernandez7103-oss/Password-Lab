@@ -1,0 +1,23 @@
+RECOMENDACIONES DE SEGURIDAD PARA CONTRASE�AS D�BILES
+==================================================
+
+Usuario usuario001: La contrase�a '123456' es demasiado corta (solo 6 caracteres). Recomendaci�n: Use al menos 8 caracteres.
+Usuario usuario002: La contrase�a 'password' es muy com�n. Recomendaci�n: Evite palabras comunes del diccionario.
+Usuario usuario003: La contrase�a '12345678' contiene solo n�meros. Recomendaci�n: Combine letras, n�meros y s�mbolos.
+Usuario usuario004: La contrase�a 'qwerty' es demasiado corta (solo 6 caracteres). Recomendaci�n: Use al menos 8 caracteres.
+Usuario usuario005: La contrase�a 'abc123' es demasiado corta (solo 6 caracteres). Recomendaci�n: Use al menos 8 caracteres.
+Usuario usuario006: La contrase�a 'password1' es muy com�n. Recomendaci�n: Evite palabras comunes del diccionario.
+Usuario usuario007: La contrase�a '12345' es demasiado corta (solo 5 caracteres). Recomendaci�n: Use al menos 8 caracteres.
+Usuario usuario008: La contrase�a '123456789' contiene solo n�meros. Recomendaci�n: Combine letras, n�meros y s�mbolos.
+Usuario usuario009: La contrase�a 'letmein' es demasiado corta (solo 7 caracteres). Recomendaci�n: Use al menos 8 caracteres.
+Usuario usuario010: La contrase�a 'welcome' es demasiado corta (solo 7 caracteres). Recomendaci�n: Use al menos 8 caracteres.
+Usuario usuario011: La contrase�a 'monkey' es demasiado corta (solo 6 caracteres). Recomendaci�n: Use al menos 8 caracteres.
+Usuario usuario012: La contrase�a 'dragon' es demasiado corta (solo 6 caracteres). Recomendaci�n: Use al menos 8 caracteres.
+Usuario usuario013: La contrase�a 'master' es demasiado corta (solo 6 caracteres). Recomendaci�n: Use al menos 8 caracteres.
+Usuario usuario014: La contrase�a 'hello' es demasiado corta (solo 5 caracteres). Recomendaci�n: Use al menos 8 caracteres.
+Usuario usuario015: La contrase�a 'freedom' es demasiado corta (solo 7 caracteres). Recomendaci�n: Use al menos 8 caracteres.
+Usuario usuario019: La contrase�a 'admin' es demasiado corta (solo 5 caracteres). Recomendaci�n: Use al menos 8 caracteres.
+Usuario usuario020: La contrase�a 'login' es demasiado corta (solo 5 caracteres). Recomendaci�n: Use al menos 8 caracteres.
+Usuario usuario022: La contrase�a 'shadow' es demasiado corta (solo 6 caracteres). Recomendaci�n: Use al menos 8 caracteres.
+
+Resumen: 18 contrase�as necesitan mejorarse.
