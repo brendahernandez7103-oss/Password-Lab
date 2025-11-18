@@ -49,4 +49,107 @@ def crear_diccionario_prueba():
     with open("diccionario_prueba.txt", "w") as archivo:
         for palabra in diccionario:
             archivo.write(palabra + "\n")
+
     print("Archivo 'diccionario_prueba.txt' creado con exito!")
+
+ef leer_diccionario_prueba(archivo_diccionario="diccionario_prueba.txt"):
+    try:
+        with open(archivo_diccionario, "r") as archivo:
+            palabras = [linea.strip() for linea in archivo.readlines()]
+        print(f"Se leyeron {len(palabras)} palabras del diccionario de prueba")
+        return palabras
+    except FileNotFoundError:
+        print(f"Error: No se encontró el archivo {archivo_diccionario}")
+        return []
+
+# Funcion para leer los usuarios y hashes
+def leer_usuarios_hashes(archivo_usuarios="usuarios_hashes.txt"):
+    try:
+        usuarios_hashes = {}
+        with open(archivo_usuarios, "r") as archivo:
+            for linea in archivo:
+                partes = linea.strip().split(":")
+                if len(partes) == 2:
+                    usuario, hash_valor = partes
+                    usuarios_hashes[usuario] = hash_valor
+        print(f"Se leyeron {len(usuarios_hashes)} usuarios con sus hashes")
+        return usuarios_hashes
+    except FileNotFoundError:
+        print(f"Error: No se encontró el archivo {archivo_usuarios}")
+        return {}
+
+# Funcion principal para comparar hashes
+def comparar_hashes_con_diccionario():
+    print("=== COMPARADOR DE HASHES CON DICCIONARIO DE PRUEBA ===\n")
+    
+    # Leer el diccionario de prueba
+    palabras_diccionario = leer_diccionario_prueba()
+    if not palabras_diccionario:
+        print("No se pudo leer el diccionario de prueba. Saliendo...")
+        return
+    
+    # Leer usuarios y hashes
+    usuarios_hashes = leer_usuarios_hashes()
+    if not usuarios_hashes:
+        print("No se pudieron leer los usuarios y hashes. Saliendo...")
+        return
+    
+    # Calcular hashes para cada palabra del diccionario
+    hashes_diccionario = {}
+    for palabra in palabras_diccionario:
+        hash_palabra = calcular_hash(palabra)
+        hashes_diccionario[hash_palabra] = palabra
+    
+    print(f"\nSe calcularon hashes para {len(hashes_diccionario)} palabras del diccionario")
+    
+    # Buscar coincidencias
+    coincidencias = []
+    for usuario, hash_usuario in usuarios_hashes.items():
+        if hash_usuario in hashes_diccionario:
+            contrasena_descifrada = hashes_diccionario[hash_usuario]
+            coincidencias.append({
+                'usuario': usuario,
+                'hash': hash_usuario,
+                'contrasena': contrasena_descifrada
+            })
+    
+    # Mostrar resultados
+    print(f"\n=== RESULTADOS ===")
+    print(f"Coincidencias encontradas: {len(coincidencias)}")
+    print(f"Total de usuarios en el sistema: {len(usuarios_hashes)}")
+    print(f"Porcentaje de éxito: {(len(coincidencias)/len(usuarios_hashes))*100:.2f}%")
+    
+    if coincidencias:
+        print("\nCoincidencias encontradas:")
+        print("-" * 80)
+        print(f"{'USUARIO':<15} {'CONTRASEÑA':<20} {'HASH':<20}")
+        print("-" * 80)
+        for coincidencia in coincidencias:
+            usuario = coincidencia['usuario']
+            contrasena = coincidencia['contrasena']
+            hash_valor = coincidencia['hash'][:20] + "..."  # Mostrar solo parte del hash
+            print(f"{usuario:<15} {contrasena:<20} {hash_valor:<20}")
+    else:
+        print("\nNo se encontraron coincidencias.")
+    
+    return coincidencias
+
+# Funcion para ejecutar todo el proceso
+def ejecutar_proceso_completo():
+    print("=== INICIANDO PROCESO COMPLETO ===\n")
+    
+    # Crear archivos necesarios si no existen
+    print("1. Creando archivos necesarios...")
+    guardar_usuarios_hashes(contrasenas)
+    crear_diccionario_prueba()
+    
+    print("\n2. Realizando comparación de hashes...")
+    coincidencias = comparar_hashes_con_diccionario()
+    
+    return coincidencias
+
+# Ejecutar el script principal
+if __name__ == "__main__":
+    ejecutar_proceso_completo()
+        
+#Medir el tiempo o y contar cuántas se recuperaron; presentar recomendaciones para fortalecer contraseñas encontradas
